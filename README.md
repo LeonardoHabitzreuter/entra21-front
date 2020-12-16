@@ -22,6 +22,11 @@ bibliotecas de desemvolvimento
 npm install typescript @types/react @types/react-dom @types/node --save-dev
 ```
 
+## Instalando as dependencias
+```
+  npm i
+```
+
 ## Rodando um script definido no package.json
 ```
   npm run dev
