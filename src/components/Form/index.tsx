@@ -1,8 +1,29 @@
 import React from 'react'
+import { Title } from './styles'
 
-const Form = () => (
+// type EmailProps = {
+//   type: string
+//   placeholder: string
+// }
+
+type Props = {
+  title: string
+  buttonText: string
+  // emailProps: EmailProps
+  emailProps: {
+    type: string
+    placeholder: string
+  }
+}
+
+// const Form = (props) => (
+//   props.title
+//   props.buttonText
+  
+// EcmaScript - Destructuring
+const Form = ({ title, buttonText, emailProps }: Props) => (
   <form>
-    <h1>Formulário!</h1>
+    <Title>{title}</Title>
     <div>
       <label>Nome</label>
       <input name='name' placeholder='João da Silva' />
@@ -10,9 +31,9 @@ const Form = () => (
     <div>
       <label>Email</label>
       <input
-        type='email'
+        type={emailProps.type}
         name='email'
-        placeholder='joão.silva@gmail.com'
+        placeholder={emailProps.placeholder}
       />
     </div>
     <div>
@@ -50,7 +71,7 @@ const Form = () => (
         <option value='2'>Test2</option>
       </select>
     </div>
-    <button>Cadastrar</button>
+    <button>{buttonText}</button>
   </form>
 )
 

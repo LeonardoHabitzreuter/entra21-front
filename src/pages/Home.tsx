@@ -1,15 +1,24 @@
 import React from 'react'
 import Texts from '../components/Texts'
 import Form from '../components/Form'
-import { Title } from '../common/Titles'
+import { FirstFormTitle, SecondFormTitle } from '../common/Titles'
+import Logo from '../components/Logo'
+
+const myNumber = 6
+
+const emailProps = {
+  type: 'email',
+  placeholder: 'joão.silva@gmail.com'
+}
 
 // Com return (quando temos mais código além de apenas um retorno)
 // Esta função retorna HTML (JSX), então logo ela é um COMPONENTE
 export const Home = () => (
   <main>
-    <img src="https://s2.glbimg.com/dnwkywRafj7EhXLo9UtdAMsQHtQ=/0x0:1000x613/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2019/w/0/bkXAQGSeevX5fNk1yReQ/lindoso.jpg" />
+    <Logo />
     <Texts />
-    <Form />
+    <Form title={FirstFormTitle} buttonText='Cadastrar' emailProps={emailProps} />
+    <Form title={SecondFormTitle} buttonText='Enviar' emailProps={emailProps} />
   </main>
 )
 

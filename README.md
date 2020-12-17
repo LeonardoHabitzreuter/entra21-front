@@ -6,6 +6,7 @@
 
 ## Instalando extensões
 - Auto rename tag
+- vscode-styled-components
 
 ## Inicializando um projeto
 ```
