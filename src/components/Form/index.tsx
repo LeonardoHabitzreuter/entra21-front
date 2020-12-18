@@ -1,5 +1,6 @@
 import React from 'react'
-import { Title } from './styles'
+import { CheckboxAndSelect, Title } from './styles'
+import { Button, Label as InputLabel } from '../../ui'
 
 // type EmailProps = {
 //   type: string
@@ -9,6 +10,7 @@ import { Title } from './styles'
 type Props = {
   title: string
   buttonText: string
+  setCounter: () => void
   // emailProps: EmailProps
   emailProps: {
     type: string
@@ -21,15 +23,16 @@ type Props = {
 //   props.buttonText
   
 // EcmaScript - Destructuring
-const Form = ({ title, buttonText, emailProps }: Props) => (
-  <form>
+const Form = ({ title, buttonText, emailProps, setCounter }: Props) => (
+  // Prevenindo que a página sofra um reload
+  <form onSubmit={e => e.preventDefault()}>
     <Title>{title}</Title>
     <div>
-      <label>Nome</label>
+      <InputLabel>Nome</InputLabel>
       <input name='name' placeholder='João da Silva' />
     </div>
     <div>
-      <label>Email</label>
+      <InputLabel>Email</InputLabel>
       <input
         type={emailProps.type}
         name='email'
@@ -37,41 +40,43 @@ const Form = ({ title, buttonText, emailProps }: Props) => (
       />
     </div>
     <div>
-      <label>Data</label>
+      <InputLabel>Data</InputLabel>
       <input
         type='date'
         name='date'
       />
     </div>
     <div>
-      <label>Preço</label>
+      <InputLabel>Preço</InputLabel>
       <input
         type='number'
         name='price'
       />
     </div>
     <div>
-      <label>Senha</label>
+      <InputLabel>Senha</InputLabel>
       <input
         type='password'
         name='password'
       />
     </div>
-    <div>
-      <label>Sim ou não</label>
-      <input
-        type='checkbox'
-        name='yesOrNo'
-      />
-    </div>
-    <div>
-      <label>Select</label>
-      <select>
-        <option value='1'>Test</option>
-        <option value='2'>Test2</option>
-      </select>
-    </div>
-    <button>{buttonText}</button>
+    <CheckboxAndSelect>
+      <div>
+        <input
+          type='checkbox'
+          name='yesOrNo'
+        />
+        <InputLabel display='inline'>Sim ou não</InputLabel>
+      </div>
+      <div>
+        <InputLabel>Select</InputLabel>
+        <select>
+          <option value='1'>Test</option>
+          <option value='2'>Test2</option>
+        </select>
+      </div>
+    </CheckboxAndSelect>
+    <Button onClick={setCounter}>{buttonText}</Button>
   </form>
 )
 

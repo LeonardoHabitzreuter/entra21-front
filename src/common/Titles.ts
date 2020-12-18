@@ -1,2 +1,2 @@
-export const FirstFormTitle = 'Formulário 1'
+export const FirstFormTitle = 'Formulário'
 export const SecondFormTitle = 'Formulário 2'
