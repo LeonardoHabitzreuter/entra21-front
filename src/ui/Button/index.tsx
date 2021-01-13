@@ -6,8 +6,11 @@ type Props = {
   onClick: () => void
 }
 
-const Button = ({ children, onClick }: Props) => (
-  <StyledButton onClick={onClick}>{children}</StyledButton>
-)
+const Button = ({ children, onClick, ...rest }: Props) => {
+  console.log(rest)
+  return (
+    <StyledButton onClick={onClick} {...rest}>{children}</StyledButton>
+  )
+}
 
 export default Button

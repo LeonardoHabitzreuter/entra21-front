@@ -1,6 +1,6 @@
 import React from 'react'
-import { CheckboxAndSelect, Title } from './styles'
-import { Button, Label as InputLabel } from '../../ui'
+import { CheckboxAndSelect, Title, CreateButton } from './styles'
+import { Label as InputLabel } from '../../ui'
 
 // type EmailProps = {
 //   type: string
@@ -76,7 +76,7 @@ const Form = ({ title, buttonText, emailProps, setCounter }: Props) => (
         </select>
       </div>
     </CheckboxAndSelect>
-    <Button onClick={setCounter}>{buttonText}</Button>
+    <CreateButton onClick={setCounter}>{buttonText}</CreateButton>
   </form>
 )
 

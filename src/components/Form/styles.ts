@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Button } from '../../ui'
 
 export const Title = styled.h1`
   color: black;
@@ -16,4 +17,8 @@ export const CheckboxAndSelect = styled.div`
 
   background-color: yellow;
   height: 140px;
+`
+
+export const CreateButton = styled(Button)`
+  margin-top: 16px;
 `
