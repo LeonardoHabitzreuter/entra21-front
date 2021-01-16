@@ -2,14 +2,14 @@ import React from 'react'
 import StyledButton from './styles'
 
 type Props = {
-  children: string,
-  onClick: () => void
+  children: string
+  onClick?: () => void
+  type?: 'submit' | 'button' | 'reset'
 }
 
-const Button = ({ children, onClick, ...rest }: Props) => {
-  console.log(rest)
+const Button = ({ children, onClick, type='submit', ...rest }: Props) => {
   return (
-    <StyledButton onClick={onClick} {...rest}>{children}</StyledButton>
+    <StyledButton type={type} onClick={onClick} {...rest}>{children}</StyledButton>
   )
 }
 

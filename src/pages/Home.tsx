@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Texts from '../components/Texts'
-import Form from '../components/Form'
+import Form from '../components/CreateUserForm'
 import { FirstFormTitle, SecondFormTitle } from '../common/Titles'
 import Logo from '../components/Logo'
 
@@ -14,17 +14,14 @@ const emailProps = {
 // Com return (quando temos mais código além de apenas um retorno)
 // Esta função retorna HTML (JSX), então logo ela é um COMPONENTE
 export const Home = () => {
-  const [counter, setCounter] = useState(1)
-  
   return (
     <main>
       <Logo />
       {/* <Texts /> */}
       <Form
-        title={`${FirstFormTitle} ${counter}`}
+        title={`${FirstFormTitle}`}
         buttonText='Cadastrar'
         emailProps={emailProps}
-        setCounter={() => setCounter(counter + 1)}
       />
       {/* <Form title={SecondFormTitle} buttonText='Enviar' emailProps={emailProps} /> */}
     </main>
