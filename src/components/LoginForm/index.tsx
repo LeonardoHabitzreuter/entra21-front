@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import { Title, CreateButton } from './styles'
 import { Label as InputLabel } from '../../ui'
-import axios from 'axios'
+import { login } from '../../api'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
@@ -9,12 +9,9 @@ const LoginForm = () => {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    axios.post(
-      'https://localhost:5001/auth/login',
-      { email, password }
-    )
-    .then(resp => alert(resp.data))
-    .catch(() => alert('Login inválido'))
+    login({ email, password })
+      .then(() => alert('Deu certo!'))
+      .catch(() => alert('Login inválido'))
   }
 
   return (
@@ -39,7 +36,7 @@ const LoginForm = () => {
           onChange={e => setPassword(e.target.value)}
         />
       </div>
-      <CreateButton>Logar</CreateButton>
+      <CreateButton color='primary'>Logar</CreateButton>
     </form>
   )
 }

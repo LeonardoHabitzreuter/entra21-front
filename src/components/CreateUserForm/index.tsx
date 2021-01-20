@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import { CheckboxAndSelect, Title, CreateButton } from './styles'
 import { Label as InputLabel } from '../../ui'
-import axios from 'axios'
+import { post } from '../../api'
 
 // type EmailProps = {
 //   type: string
@@ -20,7 +20,7 @@ type Props = {
 // const Form = (props) => (
 //   props.title
 //   props.buttonText
-  
+
 // EcmaScript - Destructuring
 const CreateUserForm = ({ title, buttonText }: Props) => {
   const [name, setName] = useState('')
@@ -30,8 +30,8 @@ const CreateUserForm = ({ title, buttonText }: Props) => {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    axios.post(
-      'https://localhost:5001/users',
+    post(
+      'users',
       { name, email, password, profile }
     )
   }
@@ -74,12 +74,12 @@ const CreateUserForm = ({ title, buttonText }: Props) => {
           value={profile}
           onChange={e => setProfile(parseInt(e.target.value))}
         >
-            <option></option>
-            <option value={0}>CBF</option>
-            <option value={1}>Torcedor</option>
+          <option></option>
+          <option value={0}>CBF</option>
+          <option value={1}>Torcedor</option>
         </select>
       </div>
-      <CreateButton>{buttonText}</CreateButton>
+      <CreateButton color='primary'>{buttonText}</CreateButton>
     </form>
   )
 }
