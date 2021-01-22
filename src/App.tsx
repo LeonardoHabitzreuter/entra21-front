@@ -1,6 +1,8 @@
 import React from 'react'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import Teams from './pages/Teams'
+import Counter from './pages/Counter'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +15,12 @@ export const App = () => (
     <Switch>
       <Route path="/area-cliente">
         <Home />
+      </Route>
+      <Route path="/times">
+        <Teams />
+      </Route>
+      <Route path="/counter">
+        <Counter />
       </Route>
       <Route path="/">
         <Login />

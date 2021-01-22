@@ -2,10 +2,12 @@ import React, { FormEvent, useState } from 'react'
 import { Title, CreateButton } from './styles'
 import { Label as InputLabel } from '../../ui'
 import { login } from '../../api'
+import { useHistory } from 'react-router-dom'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const history = useHistory()
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -36,7 +38,9 @@ const LoginForm = () => {
           onChange={e => setPassword(e.target.value)}
         />
       </div>
-      <CreateButton color='primary'>Logar</CreateButton>
+      <CreateButton onClick={() => history.push('/counter')}>
+        Logar
+      </CreateButton>
     </form>
   )
 }

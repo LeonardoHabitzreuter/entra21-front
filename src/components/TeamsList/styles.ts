@@ -19,8 +19,6 @@ export const CheckboxAndSelect = styled.div`
   height: 140px;
 `
 
-export const CreateButton = styled(Button).attrs({
-  color: 'primary'
-})`
+export const CreateButton = styled(Button)`
   margin-top: 16px;
 `
