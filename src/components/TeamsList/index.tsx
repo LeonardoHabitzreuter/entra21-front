@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffectOnce } from 'react-use'
-import { get } from '../../api'
+import { get } from '/api'
 import { TD, TH, UL } from './styles'
 
 type Team = {

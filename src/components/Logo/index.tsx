@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledLogo } from './styles'
-import Micro from '../../../assets/microondas.jpg'
+import Micro from '/assets/microondas.jpg'
 
 const Logo = () => (
   <StyledLogo

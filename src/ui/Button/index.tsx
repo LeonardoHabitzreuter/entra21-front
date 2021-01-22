@@ -1,5 +1,5 @@
 import React from 'react'
-import { Colors, colors } from '../../theme/colors'
+import { Colors, colors } from '/theme/colors'
 import StyledButton from './styles'
 
 type Props = {

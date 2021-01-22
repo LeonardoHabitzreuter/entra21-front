@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import { Title, CreateButton } from './styles'
-import { Label as InputLabel } from '../../ui'
-import { login } from '../../api'
+import { Label as InputLabel } from '/ui'
+import { login } from '/api'
 import { useHistory } from 'react-router-dom'
 
 const LoginForm = () => {

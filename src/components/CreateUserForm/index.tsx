@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import { CheckboxAndSelect, Title, CreateButton } from './styles'
-import { Label as InputLabel } from '../../ui'
-import { post } from '../../api'
+import { Label as InputLabel } from '/ui'
+import { post } from '/api'
 
 // type EmailProps = {
 //   type: string
