@@ -1,24 +1,19 @@
-import styled from 'styled-components'
-import { Button } from '../../ui'
+import styled, { css } from 'styled-components'
 
-export const Title = styled.h1`
-  color: black;
-  font-size: 24px;
+const commonStyles = css`
+  border: 2px solid #7d7c7a;
+  padding: 4px;
 `
 
-export const CheckboxAndSelect = styled.div`
-  display: flex;
-  /* column | row */
-  flex-direction: column;
-  /* center | flex-start | flex-end */
-  justify-content: flex-end;
-  /* center | flex-start | flex-end */
-  align-items: flex-start;
-
-  background-color: yellow;
-  height: 140px;
+export const UL = styled.ul`
+  list-style: none;
 `
 
-export const CreateButton = styled(Button)`
-  margin-top: 16px;
+export const TH = styled.th`
+  ${commonStyles}
+`
+
+export const TD = styled.td`
+  ${commonStyles}
+  
 `
