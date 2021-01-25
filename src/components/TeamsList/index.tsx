@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useEffectOnce } from 'react-use'
 import { get } from '/api'
-import { TD, TH, UL } from './styles'
+import { UL } from './styles'
+import Table from '/ui/Table'
 
 type Team = {
   id: string
@@ -11,6 +12,8 @@ type Team = {
     name: string
   }[]
 }
+
+const TABLE_TITLES = ['Nome', 'Jogadores']
 
 // orderedList
 const TeamsOl = ({ teams }: { teams: Team[] }) => (
@@ -32,28 +35,15 @@ const TeamsUl = ({ teams }: { teams: Team[] }) => (
   </UL>
 )
 
-// unorderedList
 const TeamsTable = ({ teams }: { teams: Team[] }) => (
-  <table>
-    <thead>
-      {/* table row */}
-      <tr>
-        {/* table head */}
-        <TH>Nome</TH>
-        <TH>Jogadores</TH>
-      </tr>
-    </thead>
-    <tbody>
-      {teams.map(team => (
-        // linha
-        <tr>
-          {/* table data */}
-          <TD>{team.name}</TD>
-          <TD>{team.players.map(player => player.name).join(', ')}</TD>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <Table titles={TABLE_TITLES}>
+    {teams.map(team => (
+      <Table.Row key={team.id}>
+        <Table.Data>{team.name}</Table.Data>
+        <Table.Data>{team.players.map(player => player.name).join(', ')}</Table.Data>
+      </Table.Row>
+    ))}
+  </Table>
 )
 
 const TeamsList = () => {
