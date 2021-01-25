@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "dev": "parcel src/index.html",
-    "compile": "tsc --build"
+    "lint": "eslint src/**/*.ts{,x}",
+    "compile": "tsc --build",
+    "quality": "npm run lint && npm run compile"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,15 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.5",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^4.3.8",
     "typescript": "^4.1.2"
   }
 }

@@ -13,7 +13,7 @@ const Table = ({ titles, children }: { titles: string[], children: React.ReactNo
   <table>
     <thead>
       <tr>
-        {titles.map(title => <TH>{title}</TH>)}
+        {titles.map((title, index) => <TH key={index}>{title}</TH>)}
       </tr>
     </thead>
     <tbody>

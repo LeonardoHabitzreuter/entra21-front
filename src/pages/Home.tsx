@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-import Texts from '../components/Texts'
+import React from 'react'
 import Form from '../components/CreateUserForm'
-import { FirstFormTitle, SecondFormTitle } from '../common/Titles'
+import { FirstFormTitle } from '../common/Titles'
 import Logo from '../components/Logo'
 
-const myNumber = 6
-
 const emailProps = {
-  type: 'email',
+  type: "email",
   placeholder: 'joão.silva@gmail.com'
 }
 
