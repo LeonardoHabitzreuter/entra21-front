@@ -4,7 +4,7 @@ import { FirstFormTitle } from '../common/Titles'
 import Logo from '../components/Logo'
 
 const emailProps = {
-  type: "email",
+  type: 'email',
   placeholder: 'joão.silva@gmail.com'
 }
 
