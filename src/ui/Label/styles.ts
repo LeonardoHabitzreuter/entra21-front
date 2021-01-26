@@ -14,6 +14,7 @@ const Label = styled.label<Props>`
   margin-top: 12px;
   margin-bottom: 4px;
   display: ${({ display }) => display};
+  font-weight: 800;
 `
 
 export default Label

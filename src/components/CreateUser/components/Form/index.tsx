@@ -1,12 +1,8 @@
-import React, { FormEvent, useState } from 'react'
+import React from 'react'
 import { Title, CreateButton } from './styles'
 import { Label as InputLabel } from '/ui'
-import { post } from '/api'
-
-// type EmailProps = {
-//   type: string
-//   placeholder: string
-// }
+import { useCreateUserContext } from '../CreateUser'
+import useSendUser from '../../hooks/useSendUser'
 
 type Props = {
   title: string
@@ -17,29 +13,25 @@ type Props = {
   }
 }
 
-// const Form = (props) => (
-//   props.title
-//   props.buttonText
+const CreateUserForm = (props: Props) => {
+  // ecmascript destructuring
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    profile,
+    setProfile
+  } = useCreateUserContext()
 
-// EcmaScript - Destructuring
-const CreateUserForm = ({ title, buttonText }: Props) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [profile, setProfile] = useState<number>()
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    post(
-      'users',
-      { name, email, password, profile }
-    )
-  }
+  const onSubmit = useSendUser()
 
   return (
     // Prevenindo que a página sofra um reload
     <form onSubmit={onSubmit}>
-      <Title>{title}</Title>
+      <Title>{props.title}</Title>
       <div>
         <InputLabel>Nome</InputLabel>
         <input
@@ -79,7 +71,7 @@ const CreateUserForm = ({ title, buttonText }: Props) => {
           <option value={1}>Torcedor</option>
         </select>
       </div>
-      <CreateButton color='primary'>{buttonText}</CreateButton>
+      <CreateButton color='primary'>{props.buttonText}</CreateButton>
     </form>
   )
 }
