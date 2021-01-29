@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button, Typography } from '/ui'
+import { Button } from '/ui'
 
 export const CheckboxAndSelect = styled.div`
   display: flex;
