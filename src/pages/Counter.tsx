@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useEffectOnce } from 'react-use'
+import withPage from './withPage'
 
 const MyButton = ({ onClick }: { onClick: () => void }) => {
   console.log('botão renderizou')
@@ -49,4 +50,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default withPage('Counter', Page)

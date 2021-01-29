@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react'
-import { Title, CreateButton } from './styles'
-import { Label as InputLabel } from '/ui'
+import { CreateButton } from './styles'
+import { Label as InputLabel, Typography } from '/ui'
 import { login } from '/api'
 import { useHistory } from 'react-router-dom'
 
@@ -18,7 +18,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Title>Login</Title>
+      <Typography variant='h2'>Login</Typography>
       <div>
         <InputLabel>Email</InputLabel>
         <input

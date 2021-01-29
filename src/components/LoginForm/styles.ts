@@ -1,10 +1,5 @@
 import styled from 'styled-components'
-import { Button } from '/ui'
-
-export const Title = styled.h1`
-  color: black;
-  font-size: 24px;
-`
+import { Button, Typography } from '/ui'
 
 export const CheckboxAndSelect = styled.div`
   display: flex;

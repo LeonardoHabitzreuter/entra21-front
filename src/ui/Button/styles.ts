@@ -10,8 +10,10 @@ const Button = styled.button<Props>`
   border: none;
   background-color: ${({ color }) => color};
   color: white;
+  cursor: pointer;
 
-  &:active {
+  /* hover > quando o mouse está em cima do elemento */
+  &:active, &:hover {
     background-color: #09de53;
   }
 `
