@@ -27,6 +27,6 @@ export const post = <T>(url: string, data: any) => (
   axiosInstance.post<T>(`/${url}`, data)
 )
 
-export const get = <T>(url: string) => (
-  axiosInstance.get<T>(`/${url}`)
+export const get = <T>(url: string, params?: object) => (
+  axiosInstance.get<T>(`/${url}`, { params })
 )

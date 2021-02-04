@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import { useEffectOnce } from 'react-use'
 import { get } from '/api'
 import { UL } from './styles'
-import Table from '/ui/Table'
+import { Table } from '/ui'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { colors } from '/theme/colors'
 
 type Team = {
   id: string
@@ -47,16 +50,33 @@ const TeamsTable = ({ teams }: { teams: Team[] }) => (
 )
 
 const TeamsList = () => {
+  const [search, setSearch] = useState('')
   const [teams, setTeams] = useState<Team[]>([])
-  console.log(teams)
 
-  useEffectOnce(() => {
-    get<Team[]>('teams').then(resp => setTeams(resp.data))
-  })
+  const getTeams = () => {
+    get<Team[]>(
+      'teams',
+      search ? { name: search } : undefined
+    )
+    .then(resp => setTeams(resp.data))
+  }
+
+  useEffectOnce(getTeams)
 
   return (
     <>
       <h3>Times</h3>
+      <input
+        placeholder='Digite o nome do time'
+        type="text"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
+      <FontAwesomeIcon
+        onClick={getTeams}
+        icon={faSearch}
+        color={colors.primary}
+      />
       <TeamsOl teams={teams} />
       <TeamsUl teams={teams} />
       <TeamsTable teams={teams} />
