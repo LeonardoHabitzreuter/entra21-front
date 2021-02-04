@@ -57,8 +57,7 @@ const TeamsList = () => {
     get<Team[]>(
       'teams',
       search ? { name: search } : undefined
-    )
-    .then(resp => setTeams(resp.data))
+    ).then(resp => setTeams(resp.data))
   }
 
   useEffectOnce(getTeams)
