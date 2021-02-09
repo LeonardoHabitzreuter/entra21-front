@@ -39,7 +39,7 @@ const LoginForm = () => {
             onChange={e => setPassword(e.target.value)}
           />
         </div>
-        <CreateButton type='button' onClick={() => setShowSider(true)}>
+        <CreateButton type='submit'>
           Logar
         </CreateButton>
       </form>

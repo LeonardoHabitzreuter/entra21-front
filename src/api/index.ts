@@ -1,11 +1,12 @@
 import axios from 'axios'
+import { getData, store } from '/storage'
 
 type LoginRequest = {
   email: string
   password: string
 }
 
-const USER_KEY = 'UserId'
+const USER_TOKEN = 'token'
 
 const axiosInstance = axios.create({
   baseURL: 'https://localhost:5001',
@@ -13,14 +14,14 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use(config => {
-  config.headers.UserId = localStorage.getItem(USER_KEY)
+  config.headers.Authorization = `Bearer ${getData().token}`
   return config
 })
 
 export const login = (loginRequest: LoginRequest) => {
   return axiosInstance
     .post<string>('/auth/login', loginRequest)
-    .then(resp => localStorage.setItem(USER_KEY, resp.data))
+    .then(({ data }) => store({ token: data }))
 }
 
 export const post = <T>(url: string, data: any) => (
