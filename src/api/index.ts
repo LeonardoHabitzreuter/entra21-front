@@ -6,8 +6,6 @@ type LoginRequest = {
   password: string
 }
 
-const USER_TOKEN = 'token'
-
 const axiosInstance = axios.create({
   baseURL: 'https://localhost:5001',
   headers: { 'content-type': 'application/json' }
