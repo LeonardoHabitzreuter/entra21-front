@@ -1,8 +1,9 @@
 import React from 'react'
-import Home from './pages/Home'
+import CreateAccount from './pages/Home'
 import Login from './pages/Login'
 import Teams from './pages/Teams'
 import Counter from './pages/Counter'
+import PrivateRoute from './components/PrivateRoute'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,17 +14,17 @@ import {
 export const App = () => (
   <Router>
     <Switch>
-      <Route path="/area-cliente">
-        <Home />
-      </Route>
-      <Route path="/times">
+      <PrivateRoute path="/times">
         <Teams />
-      </Route>
-      <Route path="/counter">
+      </PrivateRoute>
+      <PrivateRoute path="/counter">
         <Counter />
+      </PrivateRoute>
+      <Route path="/login">
+        <Login />
       </Route>
       <Route path="/">
-        <Login />
+        <CreateAccount />
       </Route>
     </Switch>
   </Router>
