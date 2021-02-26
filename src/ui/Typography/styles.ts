@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { desktop, tablet } from '/theme'
 
 export type StyledProps = {
   color: string
@@ -10,8 +11,16 @@ export const H1 = styled.h1<StyledProps>`
 `
 
 export const H2 = styled.h2<StyledProps>`
-  font-size: 28px;
+  font-size: 22px;
   color: ${({ color }) => color};
+
+  ${tablet(css`
+    font-size: 28px;
+  `)}
+
+  ${desktop(css`
+    font-size: 32px;
+  `)}
 `
 
 export const H3 = styled.h3<StyledProps>`
